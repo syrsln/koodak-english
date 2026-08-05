@@ -126,10 +126,9 @@ const App = {
       <div class="letter-word">${this._escape(item.word)}</div>
       <div class="letter-fa">${this._escape(item.fa)}</div>
       <div class="letter-actions">
-        <button class="action-btn" data-action="speak-en" data-word="${this._escape(item.word)}" aria-label="English">🔊 EN</button>
-        <button class="action-btn" data-action="speak-fa" data-word="${this._escape(item.fa)}" aria-label="فارسی">🔊 FA</button>
+        <button class="action-btn speak-btn" data-action="speak-en" data-word="${this._escape(item.word)}" aria-label="Listen">🔊 ${I18n.t('btn.listen', 'Listen')}</button>
         <button class="action-btn learned-btn ${learned ? 'active' : ''}" data-action="toggle" data-id="${item.id}">
-          ${learned ? '✓' : '⭐'}
+          ${learned ? '✓ ' + I18n.t('btn.learned', 'Learned') : '⭐ ' + I18n.t('btn.markLearned', 'Mark')}
         </button>
       </div>
     `;
@@ -144,7 +143,7 @@ const App = {
       const onActivate = (e) => {
         if (e.target.closest('.action-btn')) return;
         const word = card.querySelector('.letter-word')?.textContent;
-        if (word) TTS.speak(word, 'en');
+        if (word) TTS.speak(word);
       };
       card.addEventListener('click', onActivate);
       card.addEventListener('keydown', (e) => {
@@ -156,8 +155,7 @@ const App = {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         const action = btn.dataset.action;
-        if (action === 'speak-en') TTS.speak(btn.dataset.word, 'en');
-        else if (action === 'speak-fa') TTS.speak(btn.dataset.word, 'fa');
+        if (action === 'speak-en') TTS.speak(btn.dataset.word);
         else if (action === 'toggle') {
           Progress.toggle(catId, btn.dataset.id);
           this.renderCurrent();
@@ -221,15 +219,13 @@ const App = {
       </div>
       <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
         <button class="action-btn" data-action="speak-en" data-word="${this._escape(song.title)}" style="font-size: 0.9rem; padding: 0.5rem 1rem;">🔊 ${I18n.t('btn.speakTitle', 'Speak title')}</button>
-        <button class="action-btn" data-action="speak-fa" data-word="${this._escape(song.faTitle)}" style="font-size: 0.9rem; padding: 0.5rem 1rem;">🔊 ${I18n.t('btn.speakTitleFA', 'Speak Farsi title')}</button>
         <button class="action-btn" data-action="toggle" data-id="${song.id}" style="font-size: 0.9rem; padding: 0.5rem 1rem;">${Progress.isLearned('songs', song.id) ? '✓ ' + I18n.t('btn.learned', 'Learned') : '⭐ ' + I18n.t('btn.markLearned', 'Mark learned')}</button>
       </div>
     `;
     modal.style.display = 'flex';
     modal.querySelectorAll('[data-action]').forEach(btn => {
       btn.addEventListener('click', () => {
-        if (btn.dataset.action === 'speak-en') TTS.speak(btn.dataset.word, 'en');
-        else if (btn.dataset.action === 'speak-fa') TTS.speak(btn.dataset.word, 'fa');
+        if (btn.dataset.action === 'speak-en') TTS.speak(btn.dataset.word);
         else if (btn.dataset.action === 'toggle') {
           Progress.toggle('songs', btn.dataset.id);
           this.openSong(songId);
