@@ -1,0 +1,30 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env
+.env
+.env.local
+
+# Build artifacts (none expected, but safety first)
+node_modules/
+dist/
+build/
+.cache/
+
+# Temporary local
+temporary screenshots/
+*.tmp
