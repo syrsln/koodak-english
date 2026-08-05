@@ -48,17 +48,19 @@ const Data = {
   ],
 
   // -------- COLORS (10) --------
+  // Renkler için emoji YOK (emoji-font'a bağlı, renk tutarsız).
+  // CSS ile color-circle gösterilecek (item.color).
   colors: [
-    { id: 'red',    word: 'Red',    emoji: '🔴', fa: 'قرمز',     color: '#f44336' },
-    { id: 'blue',   word: 'Blue',   emoji: '🔵', fa: 'آبی',      color: '#2196f3' },
-    { id: 'green',  word: 'Green',  emoji: '🟢', fa: 'سبز',      color: '#4caf50' },
-    { id: 'yellow', word: 'Yellow', emoji: '🟡', fa: 'زرد',      color: '#ffeb3b' },
-    { id: 'orange', word: 'Orange', emoji: '🟠', fa: 'نارنجی',   color: '#ff9800' },
-    { id: 'purple', word: 'Purple', emoji: '🟣', fa: 'بنفش',     color: '#9c27b0' },
-    { id: 'pink',   word: 'Pink',   emoji: '💖', fa: 'صورتی',    color: '#ec407a' },
-    { id: 'brown',  word: 'Brown',  emoji: '🟤', fa: 'قهوه‌ای', color: '#795548' },
-    { id: 'black',  word: 'Black',  emoji: '⚫', fa: 'سیاه',     color: '#212121' },
-    { id: 'white',  word: 'White',  emoji: '⚪', fa: 'سفید',     color: '#9e9e9e' }
+    { id: 'red',    word: 'Red',    emoji: '', fa: 'قرمز',     color: '#f44336' },
+    { id: 'blue',   word: 'Blue',   emoji: '', fa: 'آبی',      color: '#2196f3' },
+    { id: 'green',  word: 'Green',  emoji: '', fa: 'سبز',      color: '#4caf50' },
+    { id: 'yellow', word: 'Yellow', emoji: '', fa: 'زرد',      color: '#ffeb3b' },
+    { id: 'orange', word: 'Orange', emoji: '', fa: 'نارنجی',   color: '#ff9800' },
+    { id: 'purple', word: 'Purple', emoji: '', fa: 'بنفش',     color: '#9c27b0' },
+    { id: 'pink',   word: 'Pink',   emoji: '', fa: 'صورتی',    color: '#ec407a' },
+    { id: 'brown',  word: 'Brown',  emoji: '', fa: 'قهوه‌ای', color: '#795548' },
+    { id: 'black',  word: 'Black',  emoji: '', fa: 'سیاه',     color: '#212121' },
+    { id: 'white',  word: 'White',  emoji: '', fa: 'سفید',     color: '#9e9e9e' }
   ],
 
   // -------- SHAPES (8) --------

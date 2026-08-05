@@ -117,12 +117,16 @@ const App = {
     // Alfabe özel: büyük harf göster
     const bigChar = item.letter ? `<div class="letter-char" style="color: ${item.color}">${item.letter}</div>` : '';
     const cardTypeClass = item.letter ? 'letter-card' : 'letter-card word-card';
-
     card.className = cardTypeClass + (learned ? ' learned' : '');
+
+    // Emoji varsa göster, yoksa CSS renk dairesi (renkler için)
+    const visual = item.emoji
+      ? `<div class="letter-emoji" aria-hidden="true">${item.emoji}</div>`
+      : `<div class="color-circle" style="background: ${item.color};" aria-hidden="true"></div>`;
 
     card.innerHTML = `
       ${bigChar}
-      <div class="letter-emoji" aria-hidden="true">${item.emoji}</div>
+      ${visual}
       <div class="letter-word">${this._escape(item.word)}</div>
       <div class="letter-fa">${this._escape(item.fa)}</div>
       <div class="letter-actions">
